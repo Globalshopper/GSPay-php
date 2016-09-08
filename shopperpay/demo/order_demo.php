@@ -10,7 +10,7 @@ $product_info = array(
 	// 可以是多条商品数据
 	array(
 		// 商品名称
-		'productName' => 'Anti Aging Eye Cream',
+		'productName' => 'Anti \'s Aging  Eye Cream',
 		// 商品属性，包含name和value的json数组字符串格式
 		'productAttr' => '',
 		// 商品图片链接地址

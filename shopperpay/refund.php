@@ -157,4 +157,4 @@ $refund_seller_notify_data = array(
     'GSOrdId' => $gsOrdId,
 	'OrderInfo' => $refund_seller_notify_order_data
 );
-echo json_encode($refund_seller_notify_data);
+echo json_encode($refund_seller_notify_data, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);

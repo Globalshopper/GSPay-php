@@ -56,5 +56,5 @@ $shopper_api->verify($order_gs_query_result['gsChkValue'], $sign_data) or $sp->s
 
 // 返回商户;
 unset($order_gs_query_result['gsChkValue']);
-echo json_encode($order_gs_query_result);
+echo json_encode($order_gs_query_result, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
 

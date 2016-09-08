@@ -47,4 +47,4 @@ $delivery_response_result = $shopper_api->call('pay_plugin/confirm_shipment.jhtm
 // 验证订单是否成功
 $delivery_response_result['isSuccess'] == '1' or $sp->sendError($delivery_response_result['errorCode'], $delivery_response_result['errorMessage']);
 // 返回商户;
-echo json_encode($delivery_response_result);
+echo json_encode($delivery_response_result, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);

@@ -163,7 +163,7 @@ $query_seller_notify_data = array(
 	'OrderInfo' => $query_seller_notify_order_data
 );
 // 返回商户
-echo json_encode(($query_seller_notify_data));
+echo json_encode($query_seller_notify_data, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
 
 //银行返回商户的信息，接口方是商户
 // $notify_result = $seller_api->call(SELLER_QUERY_API, $query_seller_notify_data);

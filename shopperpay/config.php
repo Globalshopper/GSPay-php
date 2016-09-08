@@ -65,7 +65,7 @@ define('SELLER_API', 'http://www.pujiangzhen.cn/shopperpay/demo/seller_api_demo.
 
 // 支付成功前端返回到商户的地址
 // Merchant order payment result call back interface API private key.
-define('SELLER_RETURN_URL', 'http://localhost/shopperpay-2.0.8/demo/return_url_demo.php');
+define('SELLER_RETURN_URL', 'http://localhost/shopperpay-2.0.9/demo/return_url_demo.php');
 
 // 商户退款状态回传API
 // Merchant refund result call back address.
