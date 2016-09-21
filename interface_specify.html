@@ -783,6 +783,14 @@ pre {
 <td>-</td>
 <td>Array List，element as follows:</td>
 </tr>
+<tr>
+<td>Extra</td>
+<td>Some additional parameters JSON formatted</td>
+<td>NO</td>
+<td>String</td>
+<td>-</td>
+<td>Ex:{"shippingCost":"30.00","discount":"20:00"}</td>
+</tr>
 </tbody>
 </table>
 
@@ -1084,6 +1092,14 @@ pre {
 <td>String</td>
 <td>-</td>
 <td>-</td>
+</tr>
+<tr>
+<td>Extra</td>
+<td>Some additional parameters JSON formatted,same as you transfer in interface [Order Info Submission]</td>
+<td>NO</td>
+<td>String</td>
+<td>-</td>
+<td>Ex:{"shippingCost":"30.00","discount":"20:00"}</td>
 </tr>
 </tbody>
 </table>
@@ -1675,6 +1691,41 @@ pre {
 <td>16</td>
 <td>Order number in payment result(16 bit)</td>
 </tr>
+</tbody>
+</table>
+
+<ul>
+<li>Response json formatted data:</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Introduction</th>
+<th>Must Need</th>
+<th>Field Type</th>
+<th>Field Length</th>
+<th>Memo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MerOrdId</td>
+<td>Order Num in your system</td>
+<td>Yes( if there is no GSOrdId)</td>
+<td>String</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>GSOrdId</td>
+<td>Globalshopper system order Id, related with MerOrdId in your system.</td>
+<td>Yes( if there is no MerOrdId)</td>
+<td>String</td>
+<td>16</td>
+<td>Order number in payment result(16 bit)</td>
+</tr>
 <tr>
 <td>PackageInfo</td>
 <td>Logistic package info</td>
@@ -1749,6 +1800,14 @@ pre {
 <td>String</td>
 <td>-</td>
 <td>-</td>
+</tr>
+<tr>
+<td>Extra</td>
+<td>Some additional parameters JSON formatted,same as you transfer in interface [Order Info Submission]</td>
+<td>NO</td>
+<td>String</td>
+<td>-</td>
+<td>Ex:{"shippingCost":"30.00","discount":"20:00"}</td>
 </tr>
 </tbody>
 </table>
@@ -1912,6 +1971,14 @@ pre {
 <tr>
 <td>estimateTime</td>
 <td>the estimated time arrived at the warehouse</td>
+<td>YES</td>
+<td>String</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>warehouseCode</td>
+<td>the warehouse code where you send your pakcages</td>
 <td>YES</td>
 <td>String</td>
 <td>-</td>

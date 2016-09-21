@@ -19,6 +19,7 @@
 | MerOrdId | Order Num in your system | Yes( if there is no GSOrdId) | String | - |
 |ProTotalAmt|Transaction Amount|NO|String|10|Ex：10.00|
 |ProductInfo|Product Info|YES|Array|-|Array List，element as follows:|
+|Extra|Some additional parameters JSON formatted|NO|String|-|Ex:{"shippingCost":"30.00","discount":"20:00"}|
 
 
 - ProductInfo elements as follows:
@@ -71,6 +72,8 @@
 |postTaxSource|customs transit tax cost|YES|String|-|-|
 |sourceExcise|Sourcethe original consumption tax|YES|String|-|Tax on items purchased by the country|
 |sourceFreightSource|domestic freight in the country where the items are purchased|YES|String|-|-|
+|Extra|Some additional parameters JSON formatted,same as you transfer in interface [Order Info Submission]|NO|String|-|Ex:{"shippingCost":"30.00","discount":"20:00"}|
+
 
 - consigneeInfo elements as follows:
 
@@ -189,6 +192,12 @@
 	- @See [flow chat 5.1]
 	- Attention only return the packageInfo and consigneeInfo with no orderInfo.
 
+| Parameter | Introduction | Must Need| Field Type | Field Length | Memo|  
+| ---- | ----------------- | ------------------- | ---- | ----------------- | -------------------|
+| MerOrdId | Order Num in your system | Yes( if there is no GSOrdId) | String |-| - |
+|GSOrdId|Globalshopper system order Id, related with MerOrdId in your system.|Yes( if there is no MerOrdId)|String|16|Order number in payment result(16 bit)|
+
+- Response json formatted data:
 
 | Parameter | Introduction | Must Need| Field Type | Field Length | Memo|  
 | ---- | ----------------- | ------------------- | ---- | ----------------- | -------------------|
@@ -206,6 +215,7 @@
 |postTaxSource|customs transit tax cost|YES|String|-|-|
 |sourceExcise|Sourcethe original consumption tax|YES|String|-|Tax on items purchased by the country|
 |sourceFreightSource|domestic freight in the country where the items are purchased|YES|String|-|-|
+|Extra|Some additional parameters JSON formatted,same as you transfer in interface [Order Info Submission]|NO|String|-|Ex:{"shippingCost":"30.00","discount":"20:00"}|
 
 - consigneeInfo elements as follows:
 
@@ -235,8 +245,8 @@
 |totalTrackNum| Tracking Number in your system, could be the tracking number of your express company, or you should use GSOrdId if you label it on your package in the form of bar code.| YES | String | - | - |
 |expressCompany| The express company name | NO(if you use GSOrdId as your TrackNum) YES(if you use tracking number of express company) | String | - | - |
 |estimateTime| the estimated time arrived at the warehouse | YES | String | - | - |
+|warehouseCode| the warehouse code where you send your pakcages | YES | String | - | - |
 |packages| the estimated time arrived at the warehouse | YES | List | - | - |
-
 
 - packages elements as follows:
 
@@ -245,7 +255,6 @@
 |MerOrdId | Order Num in your system | Yes( if there is no GSOrdId) | String |-| - |
 |GSOrdId|Globalshopper system order Id, related with MerOrdId in your system.|Yes( if there is no MerOrdId)|String|16|Order number in payment result(16 bit)|
 |trackNum| Tracking Number in your system, could be the tracking number of your express company, or you should use GSOrdId if you label it on your package in the form of bar code.| YES | String | - | - |
-
 
 - Response json formatted data:
 

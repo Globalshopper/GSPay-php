@@ -752,6 +752,13 @@ pre {
 <span class="pl-s1"><span class="pl-c1">define</span>(<span class="pl-s"><span class="pl-pds">'</span>ENV_SWITCH<span class="pl-pds">'</span></span>, <span class="pl-c1">false</span>);</span></pre></div>
 
 <ul>
+<li>Merchant configs information update time. (Is not required).</li>
+</ul>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-c">// Merchant seesion configs update time formatted with yyyy/MM/dd HH:mm:ss</span></span>
+<span class="pl-s1"><span class="pl-smi">$shopperpay_config</span>[<span class="pl-s"><span class="pl-pds">'</span>UpdateAt<span class="pl-pds">'</span></span>] <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>2016-09-20 16:51:31<span class="pl-pds">'</span></span>;</span></pre></div>
+
+<ul>
 <li>Globalshopper Merchant id 
 
 <ul>
@@ -899,8 +906,8 @@ pre {
 
 <ul>
 <li><a href="https://globalshopper.github.io/GSPay-php/interface_specify.html">@See Interface Specification 1.Order payment result （See follow process 1.4）</a></li>
-<li>Will be called at least 2 times normally.</li>
-<li>The first time we will call this to update payment result to you and then skip to your SELLER_RETURN_URL (your customized order confirmation page address).</li>
+<li>Will be called at least 1 time normally.</li>
+<li>The first time we will call this to update payment result basically the same time with SELLER_RETURN_URL (your customized order confirmation page address).</li>
 <li>The second time we will call this just to update payment result to you, in case you did not receive the payment result at the first time , this situation will happen when the order submite page is closed before the payment result call back.</li>
 <li>Maybe we will call this more than 2 times , this is becasue our server can not be sure that your web site server have received the payment result data successfully. We will try to resend 5 times at most.</li>
 </ul>
@@ -964,12 +971,31 @@ pre {
 
 <ul>
 <li>
+<p>Version 2.0.9</p>
+
+<ul>
+<li>Distinguish the page redirect with form data ( SELLER_RETURN_URL ) and server notification with post parameters (SELLER_API)</li>
+<li>Fix bug , fix the special character bug.</li>
+<li><a href="https://github.com/Globalshopper/GSPay-php/releases/tag/v2.0.9">Release v2.0.9</a></li>
+</ul>
+</li>
+<li>
+<p>Version 2.0.6</p>
+
+<ul>
+<li>By simply updating the plug-in program, you can achieve the following aspects of the business and system upgrade.</li>
+<li>Meet the customized needs and suggestions of the business you have proposed before.</li>
+<li>Added preferential code exchange, logistics, coupons and other related promotional functions.</li>
+<li>Further enhance the security of the system interaction.</li>
+<li><a href="https://github.com/Globalshopper/GSPay-php/releases/tag/v2.0.6">Release v2.0.6</a></li>
+</ul>
+</li>
+<li>
 <p>Version 2.0.1</p>
 
 <ul>
 <li>Add an interface [7.0 Single order information query]</li>
-<li>
-<p>Adjust the interface fields.</p>
+<li>Adjust the interface fields.
 
 <ul>
 <li>Replace [OrdId] with [MerOrdId].</li>
