@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * 演示订单数据生成
  */
@@ -8,7 +10,7 @@ $product_info = array(
 	// 可以是多条商品数据
 	array(
 		// 商品名称
-		'productName' => 'Anti Aging Eye Cream',
+		'productName' => 'Anti \'s Aging  Eye Cream',
 		// 商品属性，包含name和value的json数组字符串格式
 		'productAttr' => '',
 		// 商品图片链接地址
@@ -18,7 +20,7 @@ $product_info = array(
 		// 商品数量
 		'quantity' => '1',
 		// 单件商品重量，包括小数点和小数位（4位）一共18位
-		'perWeight' => '500',
+		'perWeight' => '0.5',
 		// 单件商品体积，包括小数点和小数位（4位）一共18位
 		'perVolume' => '300',
 		// 单件商品小计

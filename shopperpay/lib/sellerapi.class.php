@@ -97,14 +97,34 @@ class SellerAPI
 	 * 跳转到商户返回地址
 	 * redirect to merchant's return URL
 	 */
-	public function goReturnUrl()
+	public function goReturnUrl($data)
 	{
-		if (SELLER_RETURN_URL){
-		    $return_url = SELLER_RETURN_URL;
+		if (defined('SELLER_RETURN_URL') && !empty(SELLER_RETURN_URL)){
+		    $this->buildFormSubmit($data, SELLER_RETURN_URL);
 		}else {
-		    $return_url = GS_ORDER_LIST;
+		    header('Location: ' . GS_ORDER_LIST);
 		}
-		
-		header('Location: ' . $return_url);
+	}
+
+	/**
+	 * form表单提交到商户页面
+	 * @param  [type] $params [description]
+	 * @param  [type] $url    [description]
+	 * @return [type]         [description]
+	 */
+	public function buildFormSubmit($params, $url)
+	{
+	    logResult("Seller Payinfo Submit", array('url' => $url, 'data' => $params));
+	    $sHtml = "<form id='submit' name='submit' action='" . $url . "' method='POST'>";
+	    if (is_array($params)) {
+	        while (!!list($key, $val) = each($params)) {
+	            $sHtml .= "<input type='hidden' name='" . $key . "' value='" . htmlspecialchars($val) . "'/>";
+	        }
+	    }else {
+	        $sHtml .= "<input type='hidden' name='" . $key . "' value='" . htmlspecialchars($params) . "'/>";
+	    }
+	    $sHtml .= "</form>";
+	    $sHtml .= "<script>document.forms['submit'].submit();</script>";
+	    echo $sHtml;
 	}
 }

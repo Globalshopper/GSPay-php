@@ -1,6 +1,4 @@
 
-[TOC]
-
 #Globalshopper payment SDK
 
 GSPay Service SDK support payment, refund, single transaction results query, single order details query functions, following a  introduction of the rules of the integration.

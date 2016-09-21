@@ -69,30 +69,11 @@ $shopper_api->verify($package_data['gsChkValue'], $sign_data) or $sp->sendError(
 // Call merchant interface to save order payment status
 $seller_sync_data = array(
 	'MerOrdId' => $package_data['merOrdId'],
-	'OrderInfo' => $pay_result_data,
+	'OrderInfo' => json_encode($pay_result_data),
     'GSOrdId' => $package_data['gsOrdId'],   //由之前的GS商家返回
-	'PackageInfo' => $package_data['ordPackageInfo'],
-	'consigneeInfo' => $package_data['consigneeInfo'],
+	'PackageInfo' => json_encode($package_data['ordPackageInfo']),
+	'consigneeInfo' => json_encode($package_data['consigneeInfo']),
 );
-
-$seller_data = $seller_api->onPaid($seller_sync_data);
-$seller_data and $seller_data['isSuccess'] == '1' 
-    or $cps->showReturnError('108','Merchant API Sync PayInfo Failture', array('req' => $seller_sync_data, 'res' => $seller_data));
-
-// 向GS发送确认 == 商户已收到ChinaPay的订单
-$confirm_order_status = array(
-    'gsMerId' => $shopperpay_config['GSMerId'],
-    'gsOrdId' => $package_data['gsOrdId'],
-    'isSuccess' =>$seller_data['isSuccess'],
-);
-
-//GS密钥签名
-$confirm_order_status['gsChkValue'] = $sp->get_signed_data($confirm_order_status);
-$confirm_order_status['pluginVersion'] = $shopperpay_config['plugin_version'];
-
-$confirm_request = $shopper_api->call('pay_plugin/mer_order_status.jhtml', $confirm_order_status);
-$confirm_request and $confirm_request['isSuccess'] == '1'
-    or $cps->showReturnError('109','GS API Sync Merchant Confirm Failture', array('req' => $confirm_order_status, 'res' => $confirm_request));
 
 //  转调至GS订单地址或商户页面，由地址判断，为空则转调GS
-$seller_api->goReturnUrl(); 
+$seller_api->goReturnUrl($seller_sync_data); 

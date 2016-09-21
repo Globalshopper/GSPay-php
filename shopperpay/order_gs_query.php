@@ -12,18 +12,13 @@ require 'init.php';
 // Load GlobalShopper Interface class
 require 'lib/shopperapi.class.php';
 
+
 // 载入插件处理类
-// Load payment process class
+// Load payment plugin process class
 require 'lib/shopperpay.class.php';
 
 
-// 载入商户接口类
-// Load merchant interface class
-require 'lib/sellerapi.class.php';
-
-
 $shopper_api = new ShopperAPI();
-$seller_api = new SellerAPI();
 $sp = new ShopperPay();
 
 
@@ -61,5 +56,5 @@ $shopper_api->verify($order_gs_query_result['gsChkValue'], $sign_data) or $sp->s
 
 // 返回商户;
 unset($order_gs_query_result['gsChkValue']);
-print_r(($order_gs_query_result));
+echo json_encode($order_gs_query_result, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE);
 

@@ -122,14 +122,15 @@ $refund_gs_notify_data['pluginVersion'] = $shopperpay_config['plugin_version'];
 $refund_gs_notify_data["responseCode"] = $refund_result['ResponseCode'];
 // 同步至GS， 获得返回数据
 $notify_result = $shopper_api->call('pay_plugin/refund_result_notification.jhtml', $refund_gs_notify_data, 1);
-// GS签名验证参数
-$sign_data = $notify_result['merOrdId'].$notify_result['gsOrdId'];
-// 验证GS签名
-$shopper_api->verify($notify_result['gsChkValue'], $sign_data) or $sp->sendError('103', 'Verify GS Sign Failture！');
 // 无返回值-同步GS接口失败
 !empty($notify_result) or $sp->sendError('110', 'Connect GS API Failture！');
 // 判断返回数据， isSuccess=1为同步成功，其他则提示GS错误信息
 $notify_result['isSuccess'] == '1' or $sp->sendError($notify_result['errorCode'], $notify_result['errorMessage']);
+// GS签名验证参数
+$sign_data = $notify_result['merOrdId'].$notify_result['gsOrdId'];
+// 验证GS签名
+$shopper_api->verify($notify_result['gsChkValue'], $sign_data) or $sp->sendError('103', 'Verify GS Sign Failture！');
+
 // 返回数据给商家
 // Call Merchant Refund notify interface
 $refund_seller_notify_order_data = array(

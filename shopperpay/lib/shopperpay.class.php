@@ -76,8 +76,7 @@ class ShopperPay
 	 */
 	public function get_signed_data(array $sign_data) {
 	    $sign_data = implode('', $sign_data);
-	    require_once 'shopperapi.class.php';
-	    $shopper_api = new ShopperAPI();
+	    global $shopper_api;
 	    return $shopper_api->sign($sign_data);
 	}
 	

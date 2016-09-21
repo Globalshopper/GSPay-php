@@ -22,8 +22,8 @@ $sp = new ShopperPay();
 $order_session = $_SESSION['SHOPPER_PAY_ORDER'] ?: $sp->sendError('102', 'The Order Is Not Found');
 // 接受并处理session数据
 $order_session['TransDate'] = date('Ymd');
-$order_session['TransTime'] = date('His');
-$order_session ['ProductInfo'] = json_encode($order_session['ProductInfo']);
+$order_session['TransTime'] = date('His'); 
+$order_session ['ProductInfo'] = json_encode($order_session['ProductInfo'], JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT |  JSON_UNESCAPED_UNICODE);
 
 // 添加config内的必要支付数据
 $order_data = array(

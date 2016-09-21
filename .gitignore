@@ -7,3 +7,9 @@ composer.lock
 .buildpath
 .project
 
+
+*.prefs
+
+*.prefs
+
+*.prefs
