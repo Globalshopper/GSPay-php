@@ -1,4 +1,6 @@
 
+[TOC]
+
 #Globalshopper payment SDK
 
 GSPay Service SDK support payment, refund, single transaction results query, single order details query functions, following a  introduction of the rules of the integration.
@@ -7,7 +9,7 @@ GSPay Service SDK support payment, refund, single transaction results query, sin
 ##Environment requirements
 - PHP 5.5 and above
 - Session mechanisms need to be on the same server
-- Extension of mcrypt 、bcmath and curl are required；
+- Extension of mcrypt 、bcmath 、curl and openssl are required；
 - Payment plugin use the mcrypt_cbc function，this function are deprecated in the php version 5.5. So you need to shut down the error warning of Deprecated
 
 ##Configuration Items in config.php
@@ -17,6 +19,13 @@ GSPay Service SDK support payment, refund, single transaction results query, sin
 //Environment switch (true: production environment | false: test environment)
 define('ENV_SWITCH', false);
 ```
+
+- Merchant configs information update time. (Is not required).
+```php
+// Merchant seesion configs update time formatted with yyyy/MM/dd HH:mm:ss
+$shopperpay_config['UpdateAt'] = '2016-09-20 16:51:31';
+```
+
 - Globalshopper Merchant id 
 	- Used as merchant idenfitier in Globalshopper system.
 	- Provided by Globalshopper.
@@ -117,8 +126,8 @@ $shopperpay_config['DSTFlag'] = '0';
 
 - Order payment result call back address.
 	- [@See Interface Specification 1.Order payment result （See follow process 1.4）][Interface_01]
-	- Will be called at least 2 times normally.
-	- The first time we will call this to update payment result to you and then skip to your SELLER_RETURN_URL (your customized order confirmation page address).
+	- Will be called at least 1 time normally.
+	- The first time we will call this to update payment result basically the same time with SELLER_RETURN_URL (your customized order confirmation page address).
 	- The second time we will call this just to update payment result to you, in case you did not receive the payment result at the first time , this situation will happen when the order submite page is closed before the payment result call back.
 	- Maybe we will call this more than 2 times , this is becasue our server can not be sure that your web site server have received the payment result data successfully. We will try to resend 5 times at most.
 ```php
@@ -155,15 +164,28 @@ define('SELLER_REFUND_API', 'http://localhost/order_refund');
 - [Refund application][Interface_01]
 - [Refund result notification][Interface_01]
 - [GSOrder information query][Interface_01]
+- [GSOrder Delivery Confirmation][Interface_01]
+
 
 
 # Version
 
+ - Version 2.0.9
+ 	 - Distinguish the page redirect with form data ( SELLER_RETURN_URL ) and server notification with post parameters (SELLER_API)
+	 - Fix bug , fix the special character bug.
+	 - [Release v2.0.9][Release_v2.0.9_url]
+
+
+ - Version 2.0.6
+ 	 - By simply updating the plug-in program, you can achieve the following aspects of the business and system upgrade.
+	 - Meet the customized needs and suggestions of the business you have proposed before.
+	 - Added preferential code exchange, logistics, coupons and other related promotional functions.
+	 - Further enhance the security of the system interaction.
+	 - [Release v2.0.6][Release_v2.0.6_url]
+
  - Version 2.0.1
     - Add an interface [7.0 Single order information query]
     - Adjust the interface fields.
-
-
         - Replace [OrdId] with [MerOrdId].
         - Add [GSOrdId] filed.
         - Delete [ApiKey] filed.
@@ -186,6 +208,9 @@ This plugin and this sample file is proudly brought to you by the [Globalshopper
  [CP_Veri]:https://globalshopper.github.io/GSPay-php/CP_Verify.html
  [Interface_01]:https://globalshopper.github.io/GSPay-php/interface_specify.html
  [GS_OrderList_URL]:http://www.globalshopper.com.cn/member/order/list.jhtml
+ [Release_v2.0.6_url]:https://github.com/Globalshopper/GSPay-php/releases/tag/v2.0.6
+ [Release_v2.0.9_url]:https://github.com/Globalshopper/GSPay-php/releases/tag/v2.0.9
+
 
  
 
