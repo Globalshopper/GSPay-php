@@ -23,9 +23,7 @@ class ShopperAPI
 	 */
 	public function sendRequest($method, $url, $data = array(), $type) //post， url/checklogin, 用户登录信息
 	{
-	    $logRequestTitle = empty($type) ? "Shopper Request" : "Shopper Request BG" ;
-	    $logResponseTitle = empty($type) ? "Shopper Response" : "Shopper Response BG" ;
-		logResult($logRequestTitle, array('url' => $url, 'data' => $data));
+		logResult('Shopper Request', array('url' => $url, 'data' => $data), $type);
 		# 发送 HTTP 请求并取得返回数据
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('ContentType：application/x-www-form-urlencoded;charset=utf-8'));
@@ -56,7 +54,7 @@ class ShopperAPI
 		$res = curl_exec($ch);
 		curl_close($ch);
 
-		logResult($logResponseTitle, array('url' => $url, 'data' => $res));
+		logResult('Shopper Response', array('url' => $url, 'data' => $res), $type);
 		return $res;
 		
 	}
@@ -69,7 +67,7 @@ class ShopperAPI
 	 * @param array $params parameters of the API
 	 * @return bool|mixed result data
 	 */
-	public function call($method, $params, $type = 0) //$method CheckLogin | $params 用户登录信息
+	public function call($method, $params, $type) //$method CheckLogin | $params 用户登录信息
 	{
 		$shopper_api_params['parameters'] = json_encode($params);
 		$json_str = $this->sendRequest('POST', GS_API . $method, $shopper_api_params, $type);
@@ -90,7 +88,7 @@ class ShopperAPI
 	 * @param string $method the GlobalShopper API to call
 	 * @param array $params parameters of the API
 	 * @return bool|mixed result data
-	 */
+	 
 	public function query($method, $params)
 	{
 		$json_str = $this->sendRequest('GET', GS_API . $method, $params);
@@ -100,7 +98,7 @@ class ShopperAPI
 			return false;
 		}
 
-	}
+	}*/
 	
 	/**
 	 * 创建提交表单
@@ -111,17 +109,18 @@ class ShopperAPI
 	 */
 	public function buildFormSubmit($params, $url)
 	{
-	    logResult("Shopper Pay Submit Request to GS", array('url' => $url, 'data' => $params));
+	    logResult("Shopper Pay Submit Request to GS", array('url' => $url, 'data' => $params), 'pay');
 	    $sHtml = "<form id='submit' name='submit' action='" . $url . "' method='POST'>";
 	    if (is_array($params)) {
 	        while (!!list($key, $val) = each($params)) {
 	            $sHtml .= "<input type='hidden' name='" . $key . "' value='" . htmlspecialchars($val) . "'/>";
 	        }
 	    }else {
-	        $sHtml .= "<input type='hidden' name='" . $key . "' value='" . htmlspecialchars($params) . "'/>";
+	        $sHtml .= "<input type='hidden' name='' value='" . htmlspecialchars($params) . "'/>";
 	    }
 	    $sHtml .= "</form>";
 	    $sHtml .= "<script>document.forms['submit'].submit();</script>";
+
 	    echo $sHtml;
 	}
 	

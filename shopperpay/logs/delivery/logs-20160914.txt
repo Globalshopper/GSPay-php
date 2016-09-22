@@ -1,0 +1,15 @@
+==== Shopper Request: 2016-09-14 03:52:18 ===========
+==== IP: ::1
+array (
+  'url' => 'http://test.globalshopper.com.cn/pay_plugin/confirm_shipment.jhtml',
+  'data' => 
+  array (
+    'parameters' => '{"totalTrackNum":"112233112233","expressCompany":"abcabc","estimateTime":"","packages":"[{\\"gsOrdId\\":\\"112233\\",\\"merOrdId\\":\\"332211\\",\\"trackNum\\":\\"123123\\"}]","gsMerId":"5020001","gsChkValue":"eJJjhCSt3ufGpMW7Q3\\/6xg+cod7qdNnfEH7UzTrS15F+ywGblQX1Vz79GEXpNDtkfTIv4Ll3Je84vUvymS7RSgQr8gXvQglFbT9SzX3YU4UixKDUdfZESXyE1nenm5F1agw4+F9PpqPCxGsLoXvJi7abgJffuLqQePZiu8TR27I=","pluginVersion":"v2.1.0"}',
+  ),
+)
+==== Shopper Response: 2016-09-14 03:52:18 ===========
+==== IP: ::1
+array (
+  'url' => 'http://test.globalshopper.com.cn/pay_plugin/confirm_shipment.jhtml',
+  'data' => '{"isSuccess":"1","errorCode":"","errorMessage":""}',
+)

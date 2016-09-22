@@ -7,14 +7,28 @@
  * Write logs, for Debuging easily (can be log into database etc.)
  * NOTICE: the server need to enable fopen configuration
  */
-function logResult($type, $data = '')
+
+function logResult($title, $data = '', $path)
 {
-	if (!defined('LOGS_ENABLED') or !LOGS_ENABLED) {
+	if (!defined('LOGS_ENABLED') or !LOGS_ENABLED) 
+	{
 		return;
 	}
-	$fp = fopen(dirname(dirname(__FILE__)) . "/logs/logs-" . date('Ymd') . ".txt", "a");
+	$bg = '';
+	if (is_array($path)) {
+		$bg = ' - '.$path[1];
+		$path = $path[0];
+	}
+	$logdir = dirname(dirname(__FILE__)) . "/logs/".$path;
+	if (!empty($path)) 
+	{
+		is_dir($logdir) or mkdir($logdir);
+		$fp = fopen($logdir."/logs-" . date('Ymd') . ".txt", "a");
+	}else {
+		$fp = fopen(dirname(dirname(__FILE__)) . "/logs/logs-" . date('Ymd') . ".txt", "a");
+	}
 	flock($fp, LOCK_EX);
-	fwrite($fp, '==== ' . $type . ': ' . date("Y-m-d H:i:s") . " ===========\n");
+	fwrite($fp, '==== ' . $title . $bg . ': ' . date("Y-m-d H:i:s") . " ===========\n");
 	fwrite($fp, '==== IP: ' . $_SERVER["REMOTE_ADDR"] . "\n");
 	fwrite($fp, var_export($data, true) . "\n");
 	flock($fp, LOCK_UN);

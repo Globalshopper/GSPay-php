@@ -63,7 +63,7 @@ class ShopperPay
 	 * @return string
 	 */
 	public function getSignData($payRequest) {
-	   logResult('Shopper Pay Submit Response FROM GS', $payRequest);
+	   logResult('Shopper Pay Submit Response FROM GS', $payRequest, 'pay');
 	   return $payRequest['GSOrdId'].$payRequest['TransAmt'].$payRequest['Priv1'].$payRequest['Priv2'].$payRequest['TransDate'].$payRequest['TransTime'];
 	}
 	

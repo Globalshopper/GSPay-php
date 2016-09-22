@@ -1,0 +1,139 @@
+==== Shopper Pay Submit Response FROM GS: 2016-09-13 23:16:40 ===========
+==== IP: ::1
+array (
+  'GSOrdId' => '1473822997183785',
+  'TransAmt' => '000000024000',
+  'Priv1' => '000000003398',
+  'Priv2' => '808080071198022|000000003398|USD|\\u5218\\u6797\\u67ab|320382198812231333|181892|0|159336|17556|5000|1473822997183785',
+  'TransDate' => '20160913',
+  'TransTime' => '231606',
+  'GSChkValue' => 'cAfpFhD7cnT/kMlehyBRuJ05rB2osUx6yIcM7unYR+bV5u+GVtm8ct/Hx8etlp3dycvkRKP30wAUAaTSVoAy/2gF+qKGkqCYmTe9/lIc300dJyaR43ADgoulwzBYXROTK7HL5h5CHCHPdLaNd+lN3lg8O9TwsyDrCtKSBBPkX7U=',
+)
+==== China Pay Submit Request: 2016-09-13 23:16:41 ===========
+==== IP: ::1
+array (
+  'url' => 'http://payment-test.chinapay.com/pay/TransGet',
+  'data' => 
+  array (
+    'MerId' => '808080071198021',
+    'OrdId' => '1473822997183785',
+    'TransAmt' => '000000024000',
+    'CuryId' => 'USD',
+    'CountryId' => '0001',
+    'TransDate' => '20160913',
+    'TransType' => '0001',
+    'Version' => '20080515',
+    'BgRetUrl' => 'http://localhost/shopperpay-2.1.0/pay/notify_url.php',
+    'PageRetUrl' => 'http://localhost/shopperpay-2.1.0/pay/return_url.php',
+    'GateId' => '8613',
+    'Priv1' => '000000003398',
+    'TimeZone' => '-05',
+    'TransTime' => '231606',
+    'DSTFlag' => '0',
+    'ExtFlag' => '00',
+    'Priv2' => '808080071198022|000000003398|USD|\\u5218\\u6797\\u67ab|320382198812231333|181892|0|159336|17556|5000|1473822997183785',
+    'ChkValue' => '24F3FCAE447329CAB305DA5CE8FDA2C16E4AAC5B2A5876E121EF95428186FD8376A37E02476C8777FCBE73A2FEEA325CC2AFCF4A9F83A11AF4806D6E16D6C3A1A0BFF2FA20A547D2550E9862C2D423F1C0141CCCF30B1FA4B901815BC337F7C378D7D697BA5C665FF48C9DFD9A9BF49B59E8E28E05E9CF99C2942487011E41D2',
+  ),
+)
+==== Shopper Pay Submit Request to GS: 2016-09-13 23:17:46 ===========
+==== IP: ::1
+array (
+  'url' => 'http://test.globalshopper.com.cn/pay_plugin/validate_merchant.jhtml',
+  'data' => 
+  array (
+    'MerOrdId' => '2016091403174644',
+    'ProTotalAmt' => '240',
+    'ProductInfo' => '[{"productName":"Anti \\u0027s Aging  Eye Cream","productAttr":"","imageUrl":"","perPrice":"240.00","quantity":"1","perWeight":"0.5","perVolume":"300","perTotalAmt":"240.00","SKU":"2234"}]',
+    'TransDate' => '20160913',
+    'TransTime' => '231746',
+    'GSMerId' => '5020001',
+    'LogisticsId' => '808080071198022',
+    'PluginVersion' => 'v2.1.0',
+    'CuryId' => 'USD',
+    'PayInfoUrl' => 'http://localhost/shopperpay-2.1.0/pay/pay.php',
+    'GSChkValue' => 'hGA6+NtGFgWh+GmACDZu/8zatM07IUx3gaqIhJeadxLqMeuYLwwyNLazfFZ0REt27X/tT148m58/quGLAotg/gc+ZtXPQEaCuoBn+Fajk7MPC/uqiIzNG34U4KkXDo5WTOOhpKpFBF+fXSOjq/X8GT/ZIHiEZy1x27o8hLeud0E=',
+  ),
+)
+==== Shopper Pay Submit Response FROM GS: 2016-09-13 23:17:48 ===========
+==== IP: ::1
+array (
+  'GSOrdId' => '1473823064997892',
+  'TransAmt' => '000000024000',
+  'Priv1' => '000000003398',
+  'Priv2' => '808080071198022|000000003398|USD|\\u5218\\u6797\\u67ab|320382198812231333|181892|0|159336|17556|5000|1473823064997892',
+  'TransDate' => '20160913',
+  'TransTime' => '231746',
+  'GSChkValue' => 'VVTdrR5E9APw2Pa8xpRKCSn1X7pNgB6Oz4RCbKc/kiOzm99ooM30KgWBnrld9seHF/EkRt1llbYAbgjFBAhIpEW/MQF5+xNyg811fbQMFPmrqq3Ce1ameW8Yz1htXK2hPoRRUd8cZkb9u0hj81h5g+rzcCvQAzItdF/3kIF3WlY=',
+)
+==== China Pay Submit Request: 2016-09-13 23:17:49 ===========
+==== IP: ::1
+array (
+  'url' => 'http://payment-test.chinapay.com/pay/TransGet',
+  'data' => 
+  array (
+    'MerId' => '808080071198021',
+    'OrdId' => '1473823064997892',
+    'TransAmt' => '000000024000',
+    'CuryId' => 'USD',
+    'CountryId' => '0001',
+    'TransDate' => '20160913',
+    'TransType' => '0001',
+    'Version' => '20080515',
+    'BgRetUrl' => 'http://localhost/shopperpay-2.1.0/pay/notify_url.php',
+    'PageRetUrl' => 'http://localhost/shopperpay-2.1.0/pay/return_url.php',
+    'GateId' => '8613',
+    'Priv1' => '000000003398',
+    'TimeZone' => '-05',
+    'TransTime' => '231746',
+    'DSTFlag' => '0',
+    'ExtFlag' => '00',
+    'Priv2' => '808080071198022|000000003398|USD|\\u5218\\u6797\\u67ab|320382198812231333|181892|0|159336|17556|5000|1473823064997892',
+    'ChkValue' => '287657D9F7005F5A4F9CA95E44663F6F1A9B7251B1892C327174F28F5639A96B2B9F5F2F25C5B4294C14D8EFA86228F74597C02D796E572559C5DD11ED7A032FED34D3473449874667EE848ACC1538F698993BBFC82451E74D6C6CC3862FB0B9184BA7BB7A53EBAA7EF81A14CEBC706799F11721E8B5BBDF4C64DDFBC2E435F1',
+  ),
+)
+==== China Pay Submit Response: 2016-09-13 23:20:42 ===========
+==== IP: ::1
+array (
+  'url' => '/shopperpay-2.1.0/pay/return_url.php',
+  'data' => 
+  array (
+    'merid' => '808080071198021',
+    'orderno' => '1473823064997892',
+    'transdate' => '20160913',
+    'amount' => '000000024000',
+    'currencycode' => 'USD',
+    'transtype' => '0001',
+    'status' => '1001',
+    'checkvalue' => '1A489B14A6059205ED71B30B358362470348679D7BC39A1B64C22AFCD278C8367A00B9AD8BE0CCF5E112DAE82AB977C85E8921FC2E45218A1216EF9B3B14711226E2FD42897B0C3A669CD98A83F42C5C6680AC3093A1570BB841947C0B154AFE9A9AA767ED4AE0A5184F0A3C2899C07CE79D0D8C7C1325B0CCA85077F3D03088',
+    'GateId' => '8613',
+    'Priv1' => '000000003398',
+  ),
+)
+==== Shopper Request: 2016-09-13 23:20:42 ===========
+==== IP: ::1
+array (
+  'url' => 'http://test.globalshopper.com.cn/pay_plugin/update_order.jhtml',
+  'data' => 
+  array (
+    'parameters' => '{"gsMerId":"5020001","gsOrdId":"1473823064997892","orderInfo":"{\\"merid\\":\\"808080071198021\\",\\"orderno\\":\\"1473823064997892\\",\\"transdate\\":\\"20160913\\",\\"amount\\":\\"000000024000\\",\\"currencycode\\":\\"USD\\",\\"transtype\\":\\"0001\\",\\"status\\":\\"1001\\",\\"checkvalue\\":\\"1A489B14A6059205ED71B30B358362470348679D7BC39A1B64C22AFCD278C8367A00B9AD8BE0CCF5E112DAE82AB977C85E8921FC2E45218A1216EF9B3B14711226E2FD42897B0C3A669CD98A83F42C5C6680AC3093A1570BB841947C0B154AFE9A9AA767ED4AE0A5184F0A3C2899C07CE79D0D8C7C1325B0CCA85077F3D03088\\",\\"GateId\\":\\"8613\\",\\"Priv1\\":\\"000000003398\\"}","gsChkValue":"STluNAROUN+cWgTRUZDgSWP80K\\/pYyJoatTOk5FlhStX4C9kt\\/ihXn8ONQF3RDP7NbyioW\\/KlyNR2ZyS10foaAKyp2HRsV8mzdZIgpdwXc+6lkY+qo54l4524Z+WarbbTVwtxipWdjtpoBhyjN0z+U8oWEv8NUZCVnNDMc3HI40=","pluginVersion":"v2.1.0"}',
+  ),
+)
+==== Shopper Response: 2016-09-13 23:20:42 ===========
+==== IP: ::1
+array (
+  'url' => 'http://test.globalshopper.com.cn/pay_plugin/update_order.jhtml',
+  'data' => '{"isSuccess":"1","errorCode":"","errorMessage":"","merOrdId":"2016091403174644","gsOrdId":"1473823064997892","ordPackageInfo":{"freightSource":"7.53","postTaxSource":"26.44","sourceExciseSource":"0.00","sourceFreightSource":"0.00"},"consigneeInfo":{"contactName":"刘林枫","contactPhone":"15601718255","areaCode":"","fixedPhone":"","email":"18516597446@163.com","zipCode":"200135","countryName":"中国","provinceName":"上海市","cityName":"上海市","districtName":"浦东新区","detailAddress1":"祖冲之路2288弄","detailAddress2":""},"gsChkValue":"ldVUZwRq6UR/WZzre6aIGggmpDHg1eA2zWaAkM6v6xv4YzPhUBR1d8UQ6YwRRWJ7z6yTbP59XZ045hKkRrWagKxX7QjOQGnwSYUwM4lqSjb8Or4yhkPjGE7ghLJb5b92NEU8gp7E1zOmx8NQNeKks43/vcOGL9QPaV9whyzxOaA="}',
+)
+==== Seller Payinfo Submit: 2016-09-13 23:20:42 ===========
+==== IP: ::1
+array (
+  'url' => 'http://localhost/shopperpay-2.1.0/pay/demo/return_url_demo.php',
+  'data' => 
+  array (
+    'MerOrdId' => '2016091403174644',
+    'OrderInfo' => '{"merid":"808080071198021","orderno":"1473823064997892","transdate":"20160913","amount":"000000024000","currencycode":"USD","transtype":"0001","status":"1001","checkvalue":"1A489B14A6059205ED71B30B358362470348679D7BC39A1B64C22AFCD278C8367A00B9AD8BE0CCF5E112DAE82AB977C85E8921FC2E45218A1216EF9B3B14711226E2FD42897B0C3A669CD98A83F42C5C6680AC3093A1570BB841947C0B154AFE9A9AA767ED4AE0A5184F0A3C2899C07CE79D0D8C7C1325B0CCA85077F3D03088","GateId":"8613","Priv1":"000000003398"}',
+    'GSOrdId' => '1473823064997892',
+    'PackageInfo' => '{"freightSource":"7.53","postTaxSource":"26.44","sourceExciseSource":"0.00","sourceFreightSource":"0.00"}',
+    'consigneeInfo' => '{"contactName":"\\u5218\\u6797\\u67ab","contactPhone":"15601718255","areaCode":"","fixedPhone":"","email":"18516597446@163.com","zipCode":"200135","countryName":"\\u4e2d\\u56fd","provinceName":"\\u4e0a\\u6d77\\u5e02","cityName":"\\u4e0a\\u6d77\\u5e02","districtName":"\\u6d66\\u4e1c\\u65b0\\u533a","detailAddress1":"\\u7956\\u51b2\\u4e4b\\u8def2288\\u5f04","detailAddress2":""}',
+  ),
+)

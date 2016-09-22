@@ -17,12 +17,12 @@ class ChinaPayAPI
 	 * @param array $data request data
 	 * @return mixed result data received form server
 	 */
-	public function sendRequest($method, $url, $data = array())
+	public function sendRequest($method, $url, $data = array(), $type)
 	{  
 	    if(is_array($data)){
 	        $data=http_build_query($data,'', '&');
 	    }
-		logResult("ChinaPay Request", array('url' => $url, 'data' => $data));
+		logResult("ChinaPay Request", array('url' => $url, 'data' => $data), $type);
 		# 发送 HTTP 请求并取得返回数据
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('ContentType：application/x-www-form-urlencoded;charset=utf-8'));
@@ -55,7 +55,7 @@ class ChinaPayAPI
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
 		$res = curl_exec($ch);
 		curl_close($ch);
-		logResult("ChinaPay Response", array('url' => $url, 'data' => $res));
+		logResult("ChinaPay Response", array('url' => $url, 'data' => $res), $type);
 		return $res;
 	}
 
@@ -66,7 +66,7 @@ class ChinaPayAPI
 	 * @param string $result the origin data returned from api
 	 * @return array the parsed result data
 	 */
-	public function parseResultData($result, $type = 0)
+	public function parseResultData($result)
 	{
 		$is_match = preg_match('/<body>\s*(.*)\s*<\/body>/', $result, $matches);
 		if (!$is_match) {
@@ -75,7 +75,6 @@ class ChinaPayAPI
 		$result_data = $matches[1];
 		$result_data = mb_convert_encoding($result_data, 'UTF-8', 'GB2312');
 		parse_str($result_data, $result_array);
-		empty($type) or logResult("ChinaPay Refund Response BG", array('data' => $result_data));
 		return $result_array;
 	}
 
@@ -86,7 +85,7 @@ class ChinaPayAPI
 	 * @param array $params order query parameters
 	 * @return array order query result data
 	 */
-	public function query($params)
+	public function query($params, $type)
 	{
 		if (!defined('CHINAPAY_QUERY_URL')) {
 			die('Config error: no CHINAPAY_QUERY_URL');
@@ -94,8 +93,8 @@ class ChinaPayAPI
 		$params = $this->signQueryData($params);
 // 		echo $this->buildForm(CHINAPAY_QUERY_URL, $params);
 // 		die;
-		$result = $this->sendRequest('POST', CHINAPAY_QUERY_URL, $params);
-		return $this->parseResultData($result);
+		$result = $this->sendRequest('POST', CHINAPAY_QUERY_URL, $params, $type);
+		return $this->parseResultData($result, $type);
 	}
 
 	/**
@@ -105,7 +104,7 @@ class ChinaPayAPI
 	 * @param array $params refund request parameters
 	 * @return array refund result data
 	 */
-	public function refund($params)
+	public function refund($params, $type)
 	{
 		if (!defined('CHINAPAY_REFUND_URL')) {
 			die('Config error: no CHINAPAY_REFUND_URL');
@@ -113,7 +112,7 @@ class ChinaPayAPI
 		$params = $this->signRefundData($params);
 // 		echo $this->buildForm(CHINAPAY_REFUND_URL, $params);
 // 		die;
-		$result = $this->sendRequest('POST', CHINAPAY_REFUND_URL, $params);
+		$result = $this->sendRequest('POST', CHINAPAY_REFUND_URL, $params, $type);
 		return $this->parseResultData($result);
 	}
 
@@ -250,6 +249,7 @@ class ChinaPayAPI
 		logResult('ChinaPay Result Data BG', array(
 			'url' => $_SERVER["REQUEST_URI"],
 			'data' => $this->getRefundResult(),
+			'refund'
 		));
 		return $refund_result;
 	}
@@ -261,13 +261,18 @@ class ChinaPayAPI
 	 * @param string $msg the error message
 	 * @param mixed $detail the detail data about the error
 	 */
-	public function showReturnError($msg, $detail = '')
+	public function showReturnError($code, $msg, $detail = '')
 	{
 		logResult('ChinaPay Return Error', array(
 			'error' => $msg,
 			'detail' => $detail,
-		));
-		die($msg);
+		),'pay/error');
+		header('Content-Type:text/html; charset=utf-8');
+		die(json_encode(array(
+    			"isSuccess" => "0",
+    			"errorCode" => $code,
+    			"errorMessage" => $msg),JSON_UNESCAPED_UNICODE)
+		    );
 	}
 
 	/**
@@ -282,7 +287,7 @@ class ChinaPayAPI
 		logResult('ChinaPay Notify Error', array(
 			'error' => $msg,
 			'detail' => $detail,
-		));
+		),array('pay/error', 'BG'));
 		die($msg);
 	}
 	

@@ -23,9 +23,7 @@ class SellerAPI
 	 */
 	public function sendRequest($method, $url, $data = array(), $type)
 	{
-	    $logRequestTitle = empty($type) ? "Seller Request" : "Seller Request BG" ;
-	    $logResponseTitle = empty($type) ? "Seller Response" : "Seller Response BG" ;
-		logResult($logRequestTitle, array('url' => $url, 'data' => $data));
+		logResult('Seller Request', array('url' => $url, 'data' => $data), $type);
 		# 发送 HTTP 请求并取得返回数据
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('ContentType：application/x-www-form-urlencoded;charset=utf-8'));
@@ -55,7 +53,7 @@ class SellerAPI
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$res = curl_exec($ch);
 		curl_close($ch);
-		logResult($logResponseTitle, array('url' => $url, 'data' => $res));
+		logResult('Seller Response', array('url' => $url, 'data' => $res), $type);
 		return $res;
 	}
 
@@ -66,7 +64,7 @@ class SellerAPI
 	 * @param array $params received to be send to merchant
 	 * @return bool|mixed result from merchant callback API
 	 */
-	public function onPaid($params, $type = 0)
+	public function onPaid($params, $type)
 	{
 		return $this->call(SELLER_API, $params, $type);
 	}
@@ -79,7 +77,7 @@ class SellerAPI
 	 * @param array $params received to be send to merchant
 	 * @return bool|mixed result from merchant callback API
 	 */
-	public function call($api, $params, $type = 0)
+	public function call($api, $params, $type)
 	{
 		$real_params = array();
 		foreach ($params as $k => $v) {
@@ -97,10 +95,11 @@ class SellerAPI
 	 * 跳转到商户返回地址
 	 * redirect to merchant's return URL
 	 */
-	public function goReturnUrl($data)
+	public function goReturnUrl($data, $type)
 	{
+
 		if (defined('SELLER_RETURN_URL') && !empty(SELLER_RETURN_URL)){
-		    $this->buildFormSubmit($data, SELLER_RETURN_URL);
+		    $this->buildFormSubmit($data, SELLER_RETURN_URL, $type);
 		}else {
 		    header('Location: ' . GS_ORDER_LIST);
 		}
@@ -112,9 +111,9 @@ class SellerAPI
 	 * @param  [type] $url    [description]
 	 * @return [type]         [description]
 	 */
-	public function buildFormSubmit($params, $url)
+	public function buildFormSubmit($params, $url, $type)
 	{
-	    logResult("Seller Payinfo Submit", array('url' => $url, 'data' => $params));
+	    logResult("Seller Payinfo Submit", array('url' => $url, 'data' => $params), $type);
 	    $sHtml = "<form id='submit' name='submit' action='" . $url . "' method='POST'>";
 	    if (is_array($params)) {
 	        while (!!list($key, $val) = each($params)) {
