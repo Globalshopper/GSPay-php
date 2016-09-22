@@ -21,6 +21,50 @@
 |ProductInfo|Product Info|YES|Array|-|Array List，element as follows:|
 |Extra|Some additional parameters JSON formatted|NO|String|-|Ex:{"shippingCost":"30.00","discount":"20:00"}|
 
+```json
+/*
+Paramer : Extra
+description:
+	Filed Extra is used to meet merchat's customized requirements.
+	1.Json Formatted
+	2.Send to GS at the time of order submission
+	3.Must contain two keys "gs" and "merCustom"
+	4."gs" includes some parameter which is defined by Globalshopper, you must assign them according to GS specification. 
+	  "discount" : Discounts and preferential;
+	  "freight"  : Freight on your side;
+	  "couponNo" : Coupon Code;
+	  "shipFree" : The minimum amount of free shipping;
+	  "taxRate"  : Consumption tax rate;
+	  "taxFee"   : The amount of Consumption tax;
+	  "taxRefundRate" : The refund rate of consumption tax;
+	  "taxRefund": The amount of consumption tax;
+	  "goodsAmount" : The amount of goods.
+
+      And the "ProTotalAmt"  = goodsAmount + freight + taxFee - discount -  taxRefund
+
+     5."merCustom"  Merchants custom fields, which is used to satisfy merchant's special requirements, each merchant will 	be different.
+       If neccessary merchant should confirm the rules of engagement.
+       Merchant also could use this field to record some information simply, Globalshopper will always return this field to merchant in "Packageinfo" with no-treatment.
+*/
+{
+    "Extra": {
+        "gs": {
+            "discount": "30.00",
+            "freight": "20.00",
+            "couponNo": "HTTX365",
+            "shipFree": "30.00",
+            "taxRate": "0.08",
+            "taxFee": "20.00",
+            "taxRefundRate": "0.08",
+            "taxRefund": "20.00",
+            "goodsAmount": "300.00"
+        },
+        "merCustom": {}
+    }
+}
+
+```
+
 
 - ProductInfo elements as follows:
 

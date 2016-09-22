@@ -794,6 +794,48 @@ pre {
 </tbody>
 </table>
 
+<div class="highlight highlight-source-json"><pre>/*
+Paramer : Extra
+description:
+    Filed Extra is used to meet merchat's customized requirements.
+    <span class="pl-c1">1</span>.Json Formatted
+    <span class="pl-c1">2</span>.Send to GS at the time of order submission
+    <span class="pl-c1">3</span>.Must contain two keys <span class="pl-s"><span class="pl-pds">"</span>gs<span class="pl-pds">"</span></span> and <span class="pl-s"><span class="pl-pds">"</span>merCustom<span class="pl-pds">"</span></span>
+    <span class="pl-c1">4</span>.<span class="pl-s"><span class="pl-pds">"</span>gs<span class="pl-pds">"</span></span> includes some parameter which is defined by Globalshopper, you must assign them according to GS specification. 
+      <span class="pl-s"><span class="pl-pds">"</span>discount<span class="pl-pds">"</span></span> : Discounts and preferential;
+      <span class="pl-s"><span class="pl-pds">"</span>freight<span class="pl-pds">"</span></span>  : Freight on your side;
+      <span class="pl-s"><span class="pl-pds">"</span>couponNo<span class="pl-pds">"</span></span> : Coupon Code;
+      <span class="pl-s"><span class="pl-pds">"</span>shipFree<span class="pl-pds">"</span></span> : The minimum amount of free shipping;
+      <span class="pl-s"><span class="pl-pds">"</span>taxRate<span class="pl-pds">"</span></span>  : Consumption tax rate;
+      <span class="pl-s"><span class="pl-pds">"</span>taxFee<span class="pl-pds">"</span></span>   : The amount of Consumption tax;
+      <span class="pl-s"><span class="pl-pds">"</span>taxRefundRate<span class="pl-pds">"</span></span> : The refund rate of consumption tax;
+      <span class="pl-s"><span class="pl-pds">"</span>taxRefund<span class="pl-pds">"</span></span>: The amount of consumption tax;
+      <span class="pl-s"><span class="pl-pds">"</span>goodsAmount<span class="pl-pds">"</span></span> : The amount of goods.
+
+      And the <span class="pl-s"><span class="pl-pds">"</span>ProTotalAmt<span class="pl-pds">"</span></span>  = goodsAmount + freight + taxFee - discount -  taxRefund
+
+     <span class="pl-c1">5</span>.<span class="pl-s"><span class="pl-pds">"</span>merCustom<span class="pl-pds">"</span></span>  Merchants custom fields, which is used to satisfy merchant's special requirements, each merchant will   be different.
+       If neccessary merchant should confirm the rules of engagement.
+       Merchant also could use this field to record some information simply, Globalshopper will always return this field to merchant in <span class="pl-s"><span class="pl-pds">"</span>Packageinfo<span class="pl-pds">"</span></span> with no-treatment.
+*/
+{
+    <span class="pl-s"><span class="pl-pds">"</span>Extra<span class="pl-pds">"</span></span>: {
+        <span class="pl-s"><span class="pl-pds">"</span>gs<span class="pl-pds">"</span></span>: {
+            <span class="pl-s"><span class="pl-pds">"</span>discount<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>30.00<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>freight<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>20.00<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>couponNo<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>HTTX365<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>shipFree<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>30.00<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>taxRate<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>0.08<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>taxFee<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>20.00<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>taxRefundRate<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>0.08<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>taxRefund<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>20.00<span class="pl-pds">"</span></span>,
+            <span class="pl-s"><span class="pl-pds">"</span>goodsAmount<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>300.00<span class="pl-pds">"</span></span>
+        },
+        <span class="pl-s"><span class="pl-pds">"</span>merCustom<span class="pl-pds">"</span></span>: {}
+    }
+}
+</pre></div>
+
 <ul>
 <li>ProductInfo elements as follows:</li>
 </ul>
