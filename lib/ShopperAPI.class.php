@@ -6,10 +6,6 @@
 
 require_once 'shopperpay_core.function.php';
 
-if (!defined('GS_API')) {
-	die('Config error: no GS_API');
-}
-
 class ShopperAPI
 {
 	/*
@@ -69,6 +65,9 @@ class ShopperAPI
 	 */
 	public function call($method, $params, $type) //$method CheckLogin | $params 用户登录信息
 	{
+		if (!defined('GS_API')) {
+			die('Config error: no GS_API');
+		}
 		$shopper_api_params['parameters'] = json_encode($params);
 		$json_str = $this->sendRequest('POST', GS_API . $method, $shopper_api_params, $type);
 // 		var_dump($shopper_api_params);

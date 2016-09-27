@@ -15,7 +15,7 @@ define('GS_API', $gs_api);
 $shopperpay_config['GSMerId'] = '5020001';
 
 // ShopperPay Plugin Version
-$shopperpay_config['plugin_version'] = 'v2.1.0';
+$shopperpay_config['plugin_version'] = 'v2.1.1';
 
 // GS公钥配置
 //public key configuration

@@ -75,7 +75,7 @@ define('REFUND_NOTIFY_URL', dirname($self_url) . '/refund_notify_url.php');
 
 // 海淘天下接口地址
 // Test development environment,Globalshopper API interface address.
-define('GS_API', $gs_api);
+if (isset($_SESSION['SHOPPER_PAY_CONFIG']) && !empty($_SESSION['SHOPPER_PAY_CONFIG'])) define('GS_API', $gs_api);
 
 // 海淘天下订单页
 define('GS_ORDER_LIST', 'http://test.globalshopper.com.cn/member/order/list.jhtml');

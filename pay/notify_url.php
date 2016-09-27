@@ -28,6 +28,8 @@ if (file_exists($path)) {
 	define('SELLER_REFUND_API', $shopperpay_config['SELLER_REFUND_API']);
 }
 
+// 如果config文件采用session配置, 则从商户配置中获取数据, define接口常量
+$shopperpay_config = getConfig($shopperpay_config, $pay_result_data['merid']); 
 
 // 判断交易状态是否成功
 // check if payment status is success or not
