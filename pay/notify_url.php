@@ -13,20 +13,7 @@ $cps = new ChinaPaySubmit();
 
 // 接收支付结果数据
 // get payment result data
-$pay_result_data = $cps->getPayResult(array('pay', 'BG'));
-
-// 如果config文件采用session配置, 则从商户配置中获取数据
-$path = dirname(__DIR__).'/gsmerconfig/'.$pay_result_data['merid'].'_config.txt';
-if (file_exists($path)) {
-	$shopperpay_config = json_decode(file_get_contents($path), true) + $shopperpay_config;
-	define('CHINAPAY_PUBKEY', $shopperpay_config['CHINAPAY_PUBKEY']);
-	define('CHINAPAY_PRIVKEY', $shopperpay_config['CHINAPAY_PRIVKEY']);
-	define('GS_PUBKEY', $shopperpay_config['GS_PUBKEY']);
-	define('GS_PRIVKEY', $shopperpay_config['GS_PRIVKEY']);
-	define('SELLER_API', $shopperpay_config['SELLER_API']);
-	define('SELLER_RETURN_URL', $shopperpay_config['SELLER_RETURN_URL']);
-	define('SELLER_REFUND_API', $shopperpay_config['SELLER_REFUND_API']);
-}
+$pay_result_data = $cps->getPayResult(array('pay', 'BG')); 
 
 // 如果config文件采用session配置, 则从商户配置中获取数据, define接口常量
 $shopperpay_config = getConfig($shopperpay_config, $pay_result_data['merid']); 
