@@ -112,6 +112,7 @@ description:
 
 | Parameter | Introduction | Must Need| Field Type | Field Length | Memo|  
 | ---- | ----------------- | ------------------- | ---- | ----------------- | -------------------|
+|warehouseCode|warehouse code|YES|String|-|-|
 |freightSource|Freight amount|YES|String|-|-|
 |postTaxSource|customs transit tax cost|YES|String|-|-|
 |sourceExcise|Sourcethe original consumption tax|YES|String|-|Tax on items purchased by the country|
@@ -255,6 +256,7 @@ description:
 
 | Parameter | Introduction | Must Need| Field Type | Field Length | Memo|  
 | ---- | ----------------- | ------------------- | ---- | ----------------- | -------------------|
+|warehouseCode|warehouse code|YES|String|-|-|
 |freightSource|Freight amount|YES|String|-|-|
 |postTaxSource|customs transit tax cost|YES|String|-|-|
 |sourceExcise|Sourcethe original consumption tax|YES|String|-|Tax on items purchased by the country|
