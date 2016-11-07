@@ -1,0 +1,4 @@
+1.使用FTP登录服务器，打开web根目录 
+2.关闭magento缓存与编译缓存（如果开启了的话）
+3.将本插件直接在web根目录覆盖
+4.检查插件是否成功安装，登录网站后台 System》Configuration》Advanced ，查看Ares_Gspay 模块已经Enable

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+   <sections>
+        <payment>
+            <groups>
+                <gspay translate="label" module="gspay">
+                    <label>Gspay Payment Module</label>
+                    <sort_order>670</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </title>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <sendemail translate="label">
+                            <label>Send Email</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sendemail>
+                        <sandbox translate="label">
+                            <label>Sand Box</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </sandbox>
+                        <order_status translate="label">
+                            <label>New order status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </order_status>
+                        <shipping_methods translate="label">
+                            <label>Shipping Methods</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_shipping_allmethods</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </shipping_methods>
+                        <!--<payment_action translate="label">
+						   <label>Payment Action</label>
+						   <frontend_type>select</frontend_type>
+						   <source_model>paygate/authorizenet_source_paymentAction</source_model>
+						   <sort_order>15</sort_order>
+						   <show_in_default>1</show_in_default>
+						   <show_in_website>1</show_in_website>
+						</payment_action>-->
+                        <gsmerid translate="label">
+                            <label>GSMerId</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Merchant Id, provided by GS, String 7.]]></comment>
+                        </gsmerid>
+                        <merid translate="label">
+                            <label>MerId</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Merchant Id, provided by Chinapay, String 15.]]></comment>
+                     	</merid>
+                        <logisticsid translate="label">
+                            <label>LogisticsId</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Logistic Merchant Id, provided by Globalshopper.]]></comment>
+                     	</logisticsid>
+                        <chinapay_pubkey translate="label">
+                            <label>Chinapay Pubkey</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[public key configuration.]]></comment>
+                     	</chinapay_pubkey>
+                        <chinapay_privkey translate="label">
+                            <label>Chinapay Privkey</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[private key configuration.]]></comment>
+                     	</chinapay_privkey>
+                    	<gs_pubkey translate="label">
+                            <label>GS Pubkey</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[GS public key configuration.]]></comment>
+                     	</gs_pubkey>
+                        <gs_privkey translate="label">
+                            <label>GS Privkey</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[GS private key configuration.]]></comment>
+                     	</gs_privkey>
+                     	<!--<timezone_setting translate="label">
+                            <label>Timezone setting</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_locale_timezone</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                  		</timezone_setting>-->
+                     	<timezone>
+                            <label>TimeZone</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[time zone, Eastren time zone means '+ ', western time zone means '- '.Less than 3 bytes.]]></comment>
+                     	</timezone>
+                 		<countryid>
+                            <label>CountryId</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Country Code, length 4, area code phone code(United States=0001，Japan=0081， China=0086).]]></comment>
+                     	</countryid>
+                     	<curyid>
+                            <label>CuryId</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Currency ID, ex:RMB = '156', Japanese yen = 'JPY', Dollar = 'USD'.]]></comment>
+                     	</curyid>
+                     	<dstflag>
+                            <label>DSTFlag</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[tag of summer time. '1'means use summer time. '0'means do not use summer time.]]></comment>
+                     	</dstflag>
+                        <plugin_version translate="label">
+                            <label>Globalshopper Version</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[Globalshopper version number.]]></comment>
+                     	</plugin_version>
+                        <version translate="label">
+                            <label>ChinaPay Version</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[payment integration version number.]]></comment>
+                     	</version>
+                        <gateid translate="label">
+                            <label>ChinaPay GateId</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[payment gate number , browser will redirect to ChinaPay bank list choose page when GateId is empty.<br/>
+browser will redirect to specific page when GateId is assigned to other specified values.]]></comment>
+                     	</gateid>
+                        <extflag translate="label">
+                            <label>ExtFlag</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>23</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment><![CDATA[oversea merchant tag , default = '00'.]]></comment>
+                     	</extflag>
+                     	
+                    </fields>
+                </gspay>
+            </groups>
+        </payment>
+    </sections>
+</config>
