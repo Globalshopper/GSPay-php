@@ -70,10 +70,7 @@ class ShopperAPI
 		}
 		$shopper_api_params['parameters'] = json_encode($params);
 		$json_str = $this->sendRequest('POST', GS_API . $method, $shopper_api_params, $type);
-// 		var_dump($shopper_api_params);
 		if ($json_str) {
-// 		    var_dump($json_str); echo '<br/>';
-//             var_dump(json_decode($json_str, true)); die;
 			return json_decode($json_str, true);
 		} else {
 			return false;

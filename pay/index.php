@@ -24,11 +24,13 @@ $order_session ['ProductInfo'] = json_encode($order_session['ProductInfo'], JSON
 
 // 添加config内的必要支付数据
 $order_data = array(
-    'GSMerId' => $shopperpay_config['GSMerId'],
-    'LogisticsId' => $shopperpay_config['LogisticsId'],
+    'GSMerId'       => $shopperpay_config['GSMerId'],
+    'LogisticsId'   => $shopperpay_config['LogisticsId'],
     'PluginVersion' => $shopperpay_config['plugin_version'],
-    'CuryId' => $shopperpay_config['CuryId'],
-    'PayInfoUrl' => dirname($self_url).'/pay.php',
+    'CuryId'        => $shopperpay_config['CuryId'],
+    'PayInfoUrl'    => dirname($self_url).'/pay.php',
+    'BgRetUrl'      => dirname($self_url).'/wxpay_notify_url.php',   
+    'PageRetUrl'    => dirname($self_url).'/wxpay_return_url.php',
 );
 
 // 对相关数据进行签名

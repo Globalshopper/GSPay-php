@@ -28,6 +28,7 @@ if (defined('ENV_SWITCH') && !empty(ENV_SWITCH)) {
 	$china_query_url = 'http://payment-test.chinapay.com/QueryWeb/processQuery.jsp';
 	$chinapay_refund_url = 'http://payment-test.chinapay.com/refund1/SingleRefund.jsp';
 	$gs_api = 'http://test.globalshopper.com.cn/';
+	// $gs_api = 'http://192.168.0.107:8080/';
 }
 
 
@@ -58,12 +59,15 @@ define('CHINAPAY_REFUND_URL', $chinapay_refund_url);
 // define('CHINAPAY_REFUND_URL', 'http://console.chinapay.com/refund/SingleRefund.jsp');
 
 //插件版本号：
-$shopperpay_config['plugin_version'] = 'v2.1.1';
+$shopperpay_config['plugin_version'] = 'v2.2.1';
 
 // 交易回调地址
 $self_url = ((!empty($_SERVER['HTTPS']) && 'on' == $_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 define('NOTIFY_URL', dirname($self_url) . '/notify_url.php');
 define('RETURN_URL', dirname($self_url) . '/return_url.php');
+
+// 微信交易回调地址
+define('WX_RETURN_URL', dirname(dirname($self_url)) . '/wxpay/return_url.php');
 
 // 订单FORM提交GS返回的地址
 define('PAY_INFO_URL', dirname($self_url).'/pay.php');

@@ -3,22 +3,24 @@
  * 演示订单数据生成
  */
 
-$totalTrackNum = '112233112233';
-$expressCompany = 'abcabc';
+$totalTrackNum = 'なし';  //
+$warehouseCode = 'N/A';  //
+$expressCompany = '福山通運 (GS)';
 $estimateTime = '';
-$packages = json_encode(
+$packages = json_encode(   //
 	array(
 		// 可以是多条商品数据
 		array(
-			'gsOrdId' => '112233',
-			'merOrdId' => '332211',
-			'trackNum' => '123123',
+			'merOrdId' => '567',
+			'gsOrdId' => '1474960210317349',
+			'trackNum' => 'なし',
 		),
 	)
-);	
+);	 
 
 $send_data = array(
 	'totalTrackNum' => $totalTrackNum,
+	'warehouseCode' => $warehouseCode,
 	'expressCompany' => $expressCompany,
 	'estimateTime' => $estimateTime,
 	'packages' => $packages
@@ -37,4 +39,4 @@ $send_data = array(
 		echo $res;
 	}
 
-sendRequest("http://localhost/shopperpay-2.1.0/delivery/index.php", $send_data);
+sendRequest("http://localhost/shopperpay-2.1.1/delivery/index.php", $send_data);

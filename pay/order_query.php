@@ -51,7 +51,7 @@ if (!$gsOrdId || empty($gsOrdId)) {
 // 获取交易查询参数
 // get order query parameters
 $order_query_data = array(
-	'MerId' => $shopperpay_config['GSMerId'],
+	'MerId' => $shopperpay_config['MerId'],
 	'TransType' => '0001',
 	'OrdId' => $gsOrdId,    // 原始支付订单号，16位长度
 	'TransDate' => $order_date,    // 订单支付日期，YYYYMMDD，8位
@@ -82,7 +82,7 @@ if ($query_result['ResponeseCode'] !== '0') {
 	$query_gs_notify_data["responseCode"] = $query_result['ResponeseCode'];
 	$query_gs_notify_data["message"] = $query_result['Message'];
 	// 连接GS API， 发送相关数据， 获取返回信息
-	$notify_result = $shopper_api->call('order_inquiry_notification.jhtml', $query_gs_notify_data, 'pay');
+	$notify_result = $shopper_api->call('pay_plugin/order_inquiry_notification.jhtml', $query_gs_notify_data, 'pay');
 	// 无返回值-同步GS接口失败
 	!empty($notify_result) or $sp->sendError('110', 'Connect GS API Failture！');
 	// 无返回值-同步GS接口失败

@@ -1,0 +1,18 @@
+==== China Pay Submit Response - BG: 2016-12-08 04:50:54 ===========
+==== IP: ::1
+array (
+  'url' => '/shopperpay-2.1.1/pay/notify_url.php',
+  'data' => 
+  array (
+    'merid' => '',
+    'orderno' => '',
+    'transdate' => '',
+    'amount' => '',
+    'currencycode' => '',
+    'transtype' => '',
+    'status' => '',
+    'checkvalue' => '',
+    'GateId' => '',
+    'Priv1' => '',
+  ),
+)

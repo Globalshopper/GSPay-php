@@ -4,6 +4,7 @@
  * 支付插件处理类
  * Payment plugin process class
  */
+
 class ShopperPay
 {
 	static $post_params = null;

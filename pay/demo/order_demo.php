@@ -8,23 +8,23 @@ $product_info = array(
 	// 可以是多条商品数据
 	array(
 		// 商品名称
-		'productName' => 'Anti \'s Aging  Eye Cream',
+		'productName' => '菊正宗日本酒の化粧水',
 		// 商品属性，包含name和value的json数组字符串格式
 		'productAttr' => '',
 		// 商品图片链接地址
 		'imageUrl' => '',
 		// 商品单价
-		'perPrice' => '240.00',
+		'perPrice' => '808',
 		// 商品数量
 		'quantity' => '1',
 		// 单件商品重量，包括小数点和小数位（4位）一共18位
-		'perWeight' => '0.5',
+		'perWeight' => '500',
 		// 单件商品体积，包括小数点和小数位（4位）一共18位
 		'perVolume' => '300',
 		// 单件商品小计
-		'perTotalAmt' => '240.00',
+		'perTotalAmt' => '808',
 		// 商品SKU
-		'SKU' => '2234',
+		'SKU' => '611049740606',
 	),
 );
 
@@ -33,10 +33,13 @@ $order = array(
 	'MerOrdId' => date('YmdHis') . rand(10, 99),
    
 	// 交易金额
-	'ProTotalAmt' => '240',
+	'ProTotalAmt' => '808',
 
 	// 商品信息,
 	'ProductInfo' => $product_info,
+
+	// 商户额外信息
+	'Extra' => json_encode(['aaaa'=>'bbbb']),
 );
 
 // 开启Session
@@ -45,7 +48,7 @@ session_start();
 $_SESSION['SHOPPER_PAY_CONFIG'] = array(
 	'ENV_SWITCH' => 0,
 	'GSMerId' => '5020001',
-	'MerId' => '808080071198021',
+	'MerId' => '808080071198021',  //
 	'LogisticsId' => '808080071198022',
 	'CHINAPAY_PUBKEY' => 'thenatural/PgPubk.key',
 	'CHINAPAY_PRIVKEY' => 'thenatural/MerPrK_808080071198021_20160711103730.key', 

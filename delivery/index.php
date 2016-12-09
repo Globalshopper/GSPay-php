@@ -21,6 +21,7 @@ $delivery_request_data = array(
 	'totalTrackNum' => $_POST['totalTrackNum'], //string
 	'expressCompany' => $_POST['expressCompany'],  //string
 	'estimateTime' => $_POST['estimateTime'], //可以为空
+	'warehouseCode' => $_POST['warehouseCode'],
 	'packages' => $_POST['packages'], //json array
 	'gsMerId' => $shopperpay_config['GSMerId'],
 );
@@ -33,11 +34,12 @@ $delivery_request_data = array(
 $delivery_sign_data = array(
 	'gsMerId' => $delivery_request_data['gsMerId'],  	//GS商户号
 	'totalTrackNum' => $delivery_request_data['totalTrackNum'],
-	'packages' => $delivery_request_data['packages']	//订单组合
+	'packages' => $delivery_request_data['packages'],	//订单组合
+	'warehouseCode' => $delivery_request_data['warehouseCode'], 
 );
 // GS密钥签名
 $delivery_request_data['gsChkValue'] = $sp->get_signed_data($delivery_sign_data);
-$delivery_request_data['pluginVersion'] = $shopperpay_config['plugin_version']; 
+$delivery_request_data['pluginVersion'] = $shopperpay_config['plugin_version'];
 
 // 物流确定请求
 $delivery_response_result = $shopper_api->call('pay_plugin/confirm_shipment.jhtml', $delivery_request_data, 'delivery');

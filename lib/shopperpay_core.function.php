@@ -8,7 +8,7 @@
  * NOTICE: the server need to enable fopen configuration
  */
 
-function logResult($title, $data = '', $path)
+function logResult($title, $data = '', $path='')
 {
 	if (!defined('LOGS_ENABLED') or !LOGS_ENABLED) 
 	{
@@ -85,7 +85,39 @@ function getConfig($shopperpay_config, $merid) {
 }
 
 
+function getPost($title, $params = NULL, $option = NULL) {
+    parse_str(file_get_contents('php://input'), $payRequest);
+    $option = empty($option) ? 'pay' : $option;
+    if (!$payRequest || empty($payRequest)) exit('Post is Null');
+    // 写入日志
+    logResult($title, array('url'=>$_SERVER['REQUEST_URI'], 'data'=>$payRequest), $option);
+    if (!empty($params) && is_string($params)) {
+        if (in_array($params,array_keys($payRequest))) {
+            return $payRequest[$params];
+        }else {
+            getError(0, 'Params is Wrong', $params, $option);
+        }
+    }
+    return $payRequest;
+}
 
+function getError($code, $msg, $detail = NULL, $option = NULL) {
+	$option = empty($option) ? 'pay' : $option;
+    logResult('Error', array('error' => $msg,'detail' => $detail),$option);
+    header('Content-Type:text/html; charset=utf-8');
+    die(json_encode(array(
+        "isSuccess" => "0",
+        "errorCode" => $code,
+        "errorMessage" => $msg), JSON_UNESCAPED_UNICODE)
+    );
+}
 
+function ajaxReturn($data) {
+    return json_encode($data, JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_TAG);
+}
+
+function jsonToArray($data) {
+    return json_decode($data, true);
+}
 
 

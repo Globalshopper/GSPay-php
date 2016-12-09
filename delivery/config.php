@@ -8,10 +8,12 @@ define('ENV_SWITCH', false);
 
 // GS API Setting
 $gs_api = ENV_SWITCH ? 'http://www.globalshopper.com.cn/' : 'http://test.globalshopper.com.cn/';
+// $gs_api = 'http://192.168.0.114:8080/';
 define('GS_API', $gs_api);
 
 // 海淘天下分配的商户号
 //Merchant Id, provided by GS, String 7.
+// $shopperpay_config['GSMerId'] = '1160009';
 $shopperpay_config['GSMerId'] = '5020001';
 
 // ShopperPay Plugin Version
